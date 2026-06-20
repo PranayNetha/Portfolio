@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pranay Netha — Finance Reel Editor</title>
+<title>Pranay Netha — Pranay Netha</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,8 +16,8 @@
     --green: #22c55e;
     --green-dim: rgba(34,197,94,0.10);
     --green-glow: rgba(34,197,94,0.18);
-    --amber: #22c55e; /* Changed yellow text color to match green */
-    --amber-dim: rgba(34,197,94,0.10); /* Changed yellow background to green tint */
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.10);
     --text: #e2e8f0;
     --text2: #94a3b8;
     --text3: #475569;
@@ -297,7 +297,7 @@
   .step-num { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--text3); margin-bottom:1.2rem; }
   .step-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; margin-bottom:0.55rem; }
   .step-body { font-size:0.82rem; line-height:1.72; color:var(--text2); }
-  .step-tool { display:inline-flex; align-items:center; gap:5px; margin-top:0.9rem; font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; color:var(--amber); background:var(--amber-dim); border:1px solid rgba(34,197,94,0.28); padding:0.25rem 0.65rem; border-radius:2px; }
+  .step-tool { display:inline-flex; align-items:center; gap:5px; margin-top:0.9rem; font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; color:var(--amber); background:var(--amber-dim); border:1px solid rgba(245,158,11,0.18); padding:0.25rem 0.65rem; border-radius:2px; }
 
   /* ── PORTFOLIO ── */
   .port-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:2.5rem; }
@@ -314,4 +314,582 @@
   .thumb-tag { font-family:'DM Mono',monospace; font-size:0.52rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--green); opacity:0.7; }
   .thumb-hook {
     font-family:'Fraunces',serif; font-size:0.88rem; font-weight:700; color:var(--text); line-height:1.3;
-    text-align:center; padding:0 0.3
+    text-align:center; padding:0 0.3rem;
+    background:rgba(34,197,94,0.06); border:1px solid rgba(34,197,94,0.12); border-radius:4px; padding:0.6rem 0.5rem;
+  }
+  .thumb-sub { font-family:'DM Mono',monospace; font-size:0.52rem; letter-spacing:0.1em; color:var(--green); opacity:0.6; text-align:right; }
+  .play-btn {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(7,8,10,0.45); opacity:0; transition:opacity 0.2s;
+  }
+  .play-btn span { width:36px; height:36px; border:1.5px solid rgba(34,197,94,0.6); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; }
+  .port-card:hover .play-btn { opacity:1; }
+  .port-info { padding:0.9rem 1rem; border-top:1px solid var(--border); }
+  .port-title { font-family:'Fraunces',serif; font-size:0.88rem; font-weight:700; margin-bottom:3px; }
+  .port-meta { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.08em; color:var(--text3); text-transform:uppercase; }
+  .port-views { font-family:'DM Mono',monospace; font-size:0.58rem; color:var(--green); letter-spacing:0.06em; }
+
+  /* ── ABOUT ── */
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; margin-top:3rem; }
+  .about-text p { font-size:0.95rem; line-height:1.88; color:rgba(226,232,240,0.65); margin-bottom:1.1rem; }
+  .about-text strong { color:var(--text); font-weight:500; }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:1.4rem; }
+  .stag { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); border:1px solid rgba(34,197,94,0.22); background:var(--green-dim); padding:0.32rem 0.78rem; border-radius:2px; }
+  .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1.5px; background:var(--border); border:1px solid var(--border); }
+  .a-stat { background:var(--card); padding:2rem; text-align:center; }
+  .a-num { font-family:'Fraunces',serif; font-size:2.4rem; font-weight:900; color:var(--green); display:block; margin-bottom:4px; line-height:1; }
+  .a-lbl { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--text3); }
+
+  /* ── WHAT YOU GET ── */
+  .deliverables { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:2.5rem; }
+  .deliv { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:1.6rem; }
+  .deliv-icon { font-size:1.4rem; margin-bottom:0.9rem; }
+  .deliv-title { font-family:'Fraunces',serif; font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; }
+  .deliv-body { font-size:0.8rem; line-height:1.72; color:var(--text2); }
+
+  /* ── CONTACT ── */
+  .contact-wrap {
+    background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding:7rem 3.5rem; text-align:center; position:relative; overflow:hidden;
+  }
+  .contact-wrap::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 50% 70% at 50% 50%, rgba(34,197,94,0.05) 0%, transparent 70%);
+  }
+  .contact-inner { max-width:580px; margin:0 auto; position:relative; z-index:2; }
+  .free-pill {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--green-dim); border:1px solid rgba(34,197,94,0.28); border-radius:3px;
+    padding:0.55rem 1.2rem; margin-top:1.5rem; margin-bottom:2.5rem;
+    font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--green);
+  }
+  .contact-links { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .c-link {
+    display:inline-flex; align-items:center; gap:0.55rem;
+    font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--text3); text-decoration:none; padding:0.8rem 1.5rem;
+    border:1px solid var(--border); border-radius:3px; transition:all 0.22s; cursor:none;
+  }
+  .c-link:hover { color:var(--green); border-color:rgba(34,197,94,0.35); background:var(--green-dim); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding:1.8rem 3.5rem; display:flex; align-items:center; justify-content:space-between;
+    border-top:1px solid var(--border);
+  }
+  footer span { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; color:var(--text3); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.in { opacity:1; transform:none; }
+
+  /* ── MOBILE ── */
+  @media(max-width:768px) {
+    nav { padding:1.1rem 1.5rem; }
+    .nav-links,.nav-cta { display:none; }
+    .hero { grid-template-columns:1fr; padding:7rem 1.5rem 3.5rem; gap:2.5rem; }
+    .hero-right { display:none; }
+    .section { padding:4rem 1.5rem; }
+    .needs-grid,.process-steps { grid-template-columns:1fr; }
+    .services-grid,.port-grid,.deliverables { grid-template-columns:1fr 1fr; }
+    .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+    .contact-wrap { padding:4.5rem 1.5rem; }
+    footer { flex-direction:column; gap:0.4rem; text-align:center; }
+  }
+  @media(max-width:480px) {
+    .services-grid,.port-grid,.deliverables { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="ring"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><div class="logo-dot"></div>Pranay Netha</div>
+  <ul class="nav-links">
+    <li><a href="#why">Why Finance</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's work →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Available for finance creators</div>
+    <h1 class="hero-name"><span class="accent">Finance</span><br>Reel Editor.</h1>
+    <p class="hero-title">Pranay Netha · DaVinci Resolve · Hyderabad, India</p>
+    <p class="hero-desc">
+      I edit short-form reels for <strong>finance educators, CAs, stock market coaches, and personal finance creators.</strong>
+      Hook-first editing that holds viewers past the 3-second scroll and drives real follower growth.
+    </p>
+
+    <div class="proof-bar">
+      <div class="proof-item">
+        <span class="proof-num">48h</span>
+        <span class="proof-lbl">Turnaround</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">100%</span>
+        <span class="proof-lbl">Finance niche</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">1st</span>
+        <span class="proof-lbl">Reel free</span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn-fill">Get a free reel →</a>
+      <a href="#work" class="btn-ghost">See my work</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="phone-wrap">
+      <div class="ftag ftag-1">📊 Finance Niche Only</div>
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-body">
+
+          <!-- Creator card -->
+          <div class="creator-card">
+            <div class="creator-avatar">AK</div>
+            <div>
+              <div class="creator-name">Akshat Kumar <span class="verified">✓</span></div>
+              <div class="creator-sub">Stock Market · 2.1M followers</div>
+            </div>
+          </div>
+
+          <!-- Reel preview -->
+          <div class="reel-preview">
+            <div class="reel-overlay-text">₹ 5 crore<br>by 35?</div>
+            <div class="reel-caption">Stop doing THIS with your SIP ↑</div>
+          </div>
+          <div class="reel-progress"><div class="reel-progress-fill"></div></div>
+
+          <!-- Metrics -->
+          <div class="metrics-row">
+            <div class="metric-chip">
+              <div class="metric-val">3.2M</div>
+              <div class="metric-lbl">Views</div>
+              <div class="metric-delta">↑ viral</div>
+            </div>
+            <div class="metric-chip">
+              <div class="metric-val">91%</div>
+              <div class="metric-lbl">Retain</div>
+              <div class="metric-delta">↑ +14%</div>
+            </div>
+            <div class="metric-chip">
+              <div class="metric-val">4.8K</div>
+              <div class="metric-lbl">Saves</div>
+              <div class="metric-delta">↑ high</div>
+            </div>
+          </div>
+
+          <!-- Mini bar chart -->
+          <div class="bars">
+            <div class="bar" style="height:38%;background:rgba(34,197,94,0.18);border-top:1px solid rgba(34,197,94,0.25)"></div>
+            <div class="bar" style="height:52%;background:rgba(34,197,94,0.18);border-top:1px solid rgba(34,197,94,0.25)"></div>
+            <div class="bar" style="height:35%;background:rgba(34,197,94,0.18);border-top:1px solid rgba(34,197,94,0.25)"></div>
+            <div class="bar" style="height:68%;background:rgba(34,197,94,0.18);border-top:1px solid rgba(34,197,94,0.25)"></div>
+            <div class="bar" style="height:82%;background:rgba(34,197,94,0.40);border-top:1px solid rgba(34,197,94,0.7)"></div>
+            <div class="bar" style="height:60%;background:rgba(34,197,94,0.18);border-top:1px solid rgba(34,197,94,0.25)"></div>
+            <div class="bar" style="height:100%;background:rgba(34,197,94,0.40);border-top:1px solid var(--green)"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="ftag ftag-2">✦ 48h delivery</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- WHY FINANCE CREATORS NEED THIS -->
+<section class="section" id="why">
+  <div class="eyebrow-sm">The problem I solve</div>
+  <h2 class="section-h reveal">Finance creators lose viewers<br><em>in the first 3 seconds.</em></h2>
+  <p class="section-sub reveal">Most finance content is educational gold buried inside mediocre editing. Here's exactly what's costing your reels views — and what I fix.</p>
+
+  <div class="needs-grid reveal">
+    <div class="need-card">
+      <div class="need-num">01</div>
+      <div class="need-title">Weak hooks that don't stop the scroll</div>
+      <p class="need-body">Finance viewers are skeptical and fast. If the first frame doesn't show a number, a bold claim, or a clear problem — they're gone. I open every reel with a pattern-interrupt hook engineered to make them stop and watch.</p>
+      <span class="need-tag">Hook engineering</span>
+    </div>
+    <div class="need-card">
+      <div class="need-num">02</div>
+      <div class="need-title">Long pauses killing retention curves</div>
+      <p class="need-body">Raw finance talking-head footage has filler words, gaps, and slow explanations. I cut tight — removing every "um", every pause, and every moment the viewer's attention could drift, without making it feel choppy.</p>
+      <span class="need-tag">Retention editing</span>
+    </div>
+    <div class="need-card">
+      <div class="need-num">03</div>
+      <div class="need-title">No captions = 60% of views lost</div>
+      <p class="need-body">Over 60% of reels are watched on mute. Word-by-word animated captions keep muted viewers locked in. I style them to match your brand — not the default auto-caption look.</p>
+      <span class="need-tag">Animated captions</span>
+    </div>
+    <div class="need-card">
+      <div class="need-num">04</div>
+      <div class="need-title">Generic B-roll that doesn't match the script</div>
+      <p class="need-body">Stock footage of random money piles doesn't build credibility. I match B-roll precisely to what's being said — charts, market tickers, phone screens, and relevant visuals that make the point land harder.</p>
+      <span class="need-tag">Finance B-roll</span>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="eyebrow-sm">Packages</div>
+  <h2 class="section-h reveal">Choose what fits your<br><em>content volume.</em></h2>
+
+  <div class="services-grid reveal">
+
+    <div class="svc-card">
+      <div class="svc-name">Single Reel</div>
+      <p class="svc-desc">One fully edited short-form reel. Great for testing my editing style before committing to a package.</p>
+      <ul class="svc-list">
+        <li>Hook-first cut from raw footage</li>
+        <li>Animated word-by-word captions</li>
+        <li>Finance-relevant B-roll layered in</li>
+        <li>Color grade + audio cleanup</li>
+        <li>1080×1920 export (Reels/Shorts ready)</li>
+        <li>2 rounds of revisions</li>
+      </ul>
+      <div class="svc-price">₹800</div>
+      <div class="svc-price-sub">per reel · delivered in 48h</div>
+      <a href="#contact" class="svc-cta">Get started →</a>
+    </div>
+
+    <div class="svc-card featured">
+      <div class="svc-badge">Most popular</div>
+      <div class="svc-name">Monthly Retainer</div>
+      <p class="svc-desc">For creators who post 3× per week. Consistent delivery, consistent growth. No chasing freelancers every time.</p>
+      <ul class="svc-list">
+        <li>10–12 reels per month</li>
+        <li>Priority 36h turnaround</li>
+        <li>Dedicated editing style guide</li>
+        <li>Finance B-roll sourced for every video</li>
+        <li>Hook review + script consult included</li>
+        <li>Unlimited minor revisions</li>
+      </ul>
+      <div class="svc-price">₹8,000–12,000</div>
+      <div class="svc-price-sub">per month · based on volume</div>
+      <a href="#contact" class="svc-cta">Book a call →</a>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-name">Starter Pack</div>
+      <p class="svc-desc">4 reels per month — perfect for creators just starting to post consistently on Reels or Shorts.</p>
+      <ul class="svc-list">
+        <li>4 reels per month</li>
+        <li>48h turnaround per reel</li>
+        <li>Captions, color, B-roll all included</li>
+        <li>SFX and audio mix included</li>
+        <li>2 rounds of revisions per reel</li>
+        <li>Monthly performance check-in</li>
+      </ul>
+      <div class="svc-price">₹3,500</div>
+      <div class="svc-price-sub">per month · 4 reels included</div>
+      <a href="#contact" class="svc-cta">Get started →</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- HOW I WORK -->
+<section class="section">
+  <div class="eyebrow-sm">How it works</div>
+  <h2 class="section-h reveal">From raw footage to<br><em>upload-ready in 48h.</em></h2>
+
+  <div class="process-steps reveal">
+    <div class="step">
+      <div class="step-num">Step 01</div>
+      <div class="step-title">You send raw footage</div>
+      <p class="step-body">Share your talking-head recording via Google Drive or WeTransfer. No special setup needed — even a phone recording works.</p>
+      <span class="step-tool">Google Drive / WeTransfer</span>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 02</div>
+      <div class="step-title">I cut and structure</div>
+      <p class="step-body">I trim all filler words and pauses, build a hook in the first 2 seconds, and pace the content for maximum retention on finance topics.</p>
+      <span class="step-tool">DaVinci Resolve 21</span>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 03</div>
+      <div class="step-title">Captions, B-roll, audio</div>
+      <p class="step-body">Word-by-word animated captions go in, finance B-roll is layered to match the script, and audio is cleaned and balanced in Fairlight.</p>
+      <span class="step-tool">Fairlight Audio · Pexels</span>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 04</div>
+      <div class="step-title">Delivered & revised</div>
+      <p class="step-body">You get a preview link within 48 hours. Feedback is applied in one round and the final file is export-ready for Instagram, YouTube Shorts, or TikTok.</p>
+      <span class="step-tool">1080×1920 · H.264</span>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- PORTFOLIO -->
+<section class="section" id="work">
+  <div class="eyebrow-sm">Portfolio</div>
+  <h2 class="section-h reveal">Finance edits <em>built to perform.</em></h2>
+  <p class="section-sub reveal">Each edit is structured around a specific finance hook. Real portfolio edits coming soon — add your raw footage to be first.</p>
+
+  <div class="port-grid reveal">
+
+    <div class="port-card">
+      <div class="port-thumb">
+        <div class="thumb-content">
+          <div class="thumb-tag">Personal Finance · 60s</div>
+          <div class="thumb-hook">"You're losing ₹40,000/year doing this with your savings account"</div>
+          <div class="thumb-sub">Hook style: Loss aversion</div>
+        </div>
+        <div class="play-btn"><span>▶</span></div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">Savings Account Mistake</div>
+        <div class="port-meta">Personal Finance · Instagram Reel</div>
+        <div class="port-views">Sample edit — hook-led</div>
+      </div>
+    </div>
+
+    <div class="port-card">
+      <div class="port-thumb">
+        <div class="thumb-content">
+          <div class="thumb-tag">Investing · 55s</div>
+          <div class="thumb-hook">"SIP vs FD — the math most people never check"</div>
+          <div class="thumb-sub">Hook style: Data-first</div>
+        </div>
+        <div class="play-btn"><span>▶</span></div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">SIP vs FD Explainer</div>
+        <div class="port-meta">Investing · YouTube Short</div>
+        <div class="port-views">Sample edit — data hook</div>
+      </div>
+    </div>
+
+    <div class="port-card">
+      <div class="port-thumb">
+        <div class="thumb-content">
+          <div class="thumb-tag">Tax · 50s</div>
+          <div class="thumb-hook">"3 deductions your CA forgot to tell you about"</div>
+          <div class="thumb-sub">Hook style: Curiosity gap</div>
+        </div>
+        <div class="play-btn"><span>▶</span></div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">Tax Saving Tips</div>
+        <div class="port-meta">Tax · Finance Educator · Reel</div>
+        <div class="port-views">Sample edit — curiosity hook</div>
+      </div>
+    </div>
+
+    <div class="port-card">
+      <div class="port-thumb">
+        <div class="thumb-content">
+          <div class="thumb-tag">Stock Market · 65s</div>
+          <div class="thumb-hook">"How to start investing with just ₹500 per month"</div>
+          <div class="thumb-sub">Hook style: Low barrier entry</div>
+        </div>
+        <div class="play-btn"><span>▶</span></div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">₹500 Investing Starter</div>
+        <div class="port-meta">Stock Market · Instagram Reel</div>
+        <div class="port-views">Sample edit — aspirational</div>
+      </div>
+    </div>
+
+    <div class="port-card">
+      <div class="port-thumb">
+        <div class="thumb-content">
+          <div class="thumb-tag">Mutual Funds · 45s</div>
+          <div class="thumb-hook">"This one fund beat the Nifty 50 for 10 years straight"</div>
+          <div class="thumb-sub">Hook style: Bold claim</div>
+        </div>
+        <div class="play-btn"><span>▶</span></div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">Mutual Fund Breakdown</div>
+        <div class="port-meta">Mutual Funds · YouTube Short</div>
+        <div class="port-views">Sample edit — bold claim hook</div>
+      </div>
+    </div>
+
+    <div class="port-card">
+      <div class="port-thumb">
+        <div class="thumb-content">
+          <div class="thumb-tag">Personal Brand · 60s</div>
+          <div class="thumb-hook">"5 money mistakes I made in my 20s (and how to avoid them)"</div>
+          <div class="thumb-sub">Hook style: Storytelling</div>
+        </div>
+        <div class="play-btn"><span>▶</span></div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">Money Mistakes Story</div>
+        <div class="port-meta">Personal Brand · Instagram Reel</div>
+        <div class="port-views">Sample edit — story hook</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- WHAT'S IN EVERY EDIT -->
+<section class="section">
+  <div class="eyebrow-sm">What's included</div>
+  <h2 class="section-h reveal">Every edit comes with<br><em>the full package.</em></h2>
+
+  <div class="deliverables reveal">
+    <div class="deliv">
+      <div class="deliv-icon">🎣</div>
+      <div class="deliv-title">Hook-first structure</div>
+      <p class="deliv-body">Every reel opens with a scroll-stopping moment — a bold number, a surprising claim, or a direct question relevant to the finance topic.</p>
+    </div>
+    <div class="deliv">
+      <div class="deliv-icon">💬</div>
+      <div class="deliv-title">Animated word captions</div>
+      <p class="deliv-body">Word-by-word captions with custom styling — not auto-generated. Keeps muted viewers engaged all the way to the end.</p>
+    </div>
+    <div class="deliv">
+      <div class="deliv-icon">📈</div>
+      <div class="deliv-title">Finance B-roll</div>
+      <p class="deliv-body">Charts, market screens, phone displays, and financial visuals layered to match exactly what's being said at each moment.</p>
+    </div>
+    <div class="deliv">
+      <div class="deliv-icon">🎧</div>
+      <div class="deliv-title">Clean audio mix</div>
+      <p class="deliv-body">Noise removal, filler word cuts, volume balancing, and background music levelled so your voice is always crystal clear.</p>
+    </div>
+    <div class="deliv">
+      <div class="deliv-icon">🎨</div>
+      <div class="deliv-title">Color grading</div>
+      <p class="deliv-body">A clean, professional look — not cinematic or oversaturated. Finance content needs to feel trustworthy, not flashy.</p>
+    </div>
+    <div class="deliv">
+      <div class="deliv-icon">📱</div>
+      <div class="deliv-title">Multi-platform export</div>
+      <p class="deliv-body">1080×1920 H.264 files ready for Instagram Reels, YouTube Shorts, and TikTok. One edit, three platforms covered.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="eyebrow-sm">About</div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <h2 class="section-h" style="margin-bottom:1.4rem;">Editing with<br><em>intent.</em></h2>
+      <p>I'm <strong>Pranay Netha</strong>, a freelance video editor based in Hyderabad specializing exclusively in <strong>finance content</strong> — mutual funds, stock market education, personal finance, and CA personal brands.</p>
+      <p>I chose finance as my niche because it's the category where editing actually changes whether someone trusts you or not. A poorly edited finance reel looks scammy. A tight, clean, hook-led edit makes the same creator look like an authority.</p>
+      <p>I edit on <strong>DaVinci Resolve 21</strong> and my workflow is built around one metric: <strong>retention rate.</strong> Every cut, every caption, every piece of B-roll is placed to keep viewers watching till the last second.</p>
+      <div class="skill-tags">
+        <span class="stag">DaVinci Resolve</span>
+        <span class="stag">Fairlight Audio</span>
+        <span class="stag">Fusion Titles</span>
+        <span class="stag">Hook Writing</span>
+        <span class="stag">B-Roll Sourcing</span>
+        <span class="stag">Caption Animation</span>
+        <span class="stag">Retention Editing</span>
+        <span class="stag">Finance Content</span>
+      </div>
+    </div>
+
+    <div class="about-stats reveal">
+      <div class="a-stat">
+        <span class="a-num">48h</span>
+        <span class="a-lbl">Max delivery time</span>
+      </div>
+      <div class="a-stat">
+        <span class="a-num">100%</span>
+        <span class="a-lbl">Finance niche only</span>
+      </div>
+      <div class="a-stat">
+        <span class="a-num">3×</span>
+        <span class="a-lbl">Revision rounds</span>
+      </div>
+      <div class="a-stat">
+        <span class="a-num">₹0</span>
+        <span class="a-lbl">First reel, no charge</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-inner">
+    <div class="eyebrow-sm" style="justify-content:center;">Get in touch</div>
+    <h2 class="section-h reveal" style="margin-bottom:0.6rem;">Your viewers are leaving.<br><em>Let's fix that.</em></h2>
+    <p style="color:var(--text2);font-size:0.9rem;line-height:1.75;" class="reveal">
+      Send me your raw footage or just a reference reel you like the look of. I'll send back a free first edit within 48 hours — no payment, no commitment.
+    </p>
+    <div class="free-pill reveal">★ First reel completely free — zero strings attached</div>
+    <div class="contact-links reveal">
+      <a href="mailto:pranaystake25@gmail.com" class="c-link">✉ pranaystake25@gmail.com</a>
+      <a href="https://instagram.com/pranays.take" target="_blank" rel="noopener" class="c-link">◈ @pranays.take</a>
+      <a href="https://www.linkedin.com/in/pranay-netha-4097b7383/" target="_blank" rel="noopener" class="c-link">in LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Pranay Netha — Finance Reel Editor · Hyderabad</span>
+  <span>Built to get hired.</span>
+</footer>
+
+<script>
+  /* cursor */
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+  });
+  (function loop(){
+    rx+=(mx-rx)*0.11; ry+=(my-ry)*0.11;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ ring.style.transform='translate(-50%,-50%) scale(1.55)'; ring.style.borderColor='rgba(34,197,94,0.6)'; });
+    el.addEventListener('mouseleave',()=>{ ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.borderColor='rgba(34,197,94,0.35)'; });
+  });
+
+  /* scroll reveal */
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'), i*70); obs.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
