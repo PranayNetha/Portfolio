@@ -113,6 +113,7 @@
     background:var(--accent); color:#04120C; padding:14px 26px; border-radius:100px; font-weight:600; font-size:14.5px;
     display:inline-flex; align-items:center; gap:8px; transition:.25s;
   }
+  button.btn-primary{ font-family:inherit; border:none; cursor:pointer; }
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 30px rgba(107,255,176,0.25);}
   .btn-secondary{
     border:1px solid var(--line); padding:14px 26px; border-radius:100px; font-weight:500; font-size:14.5px;
@@ -271,15 +272,16 @@
   .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
   .faq-a p{ color:var(--text-dim); font-size:14.5px; line-height:1.7; padding-bottom:24px; max-width:65ch; }
 
-  /* ---------- final cta ---------- */
-  .final-cta{ padding:150px 0; text-align:center; }
+  /* ---------- final cta + contact ---------- */
+  .final-cta{ padding:150px 0 110px; text-align:center; }
   .final-cta h2{ font-size:clamp(2.2rem,5.5vw,4rem); max-width:14ch; margin:0 auto; line-height:1.08; }
   .final-cta .hero-ctas{ justify-content:center; margin-top:42px; }
+  .connect-btns{ display:flex; justify-content:center; align-items:center; gap:14px; margin-top:42px; flex-wrap:wrap; }
+  .contact-btn{ padding:11px 22px; font-size:13px; }
+  @media (max-width:480px){ .connect-btns{ flex-direction:column; align-items:stretch; } .contact-btn{ justify-content:center; } }
 
   footer{ border-top:1px solid var(--line); padding:44px 0; }
   .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
-  .foot-links{ display:flex; gap:24px; font-size:13.5px; color:var(--text-dim); flex-wrap:wrap;}
-  .foot-links a:hover{ color:var(--accent); }
   .foot-copy{ font-size:12.5px; color:var(--text-dimmer); }
 
   .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
@@ -679,8 +681,10 @@
   <div class="wrap">
     <span class="kicker" style="display:block; text-align:center;">Get Started</span>
     <h2>Have footage? Let's turn it into content.</h2>
-    <div class="hero-ctas">
-      <a href="mailto:pranaystake25@gmail.com" class="btn-primary magnetic">Start a Project →</a>
+    <div class="connect-btns">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pranaystake25@gmail.com&su=Video%20Editing%20Project%20Inquiry&body=Hi%20Pranay%2C%0A%0AI%27m%20interested%20in%20working%20with%20you%20on%20a%20video%20editing%20project.%0A%0AProject%20details%3A%0A%0A%0AThanks%21" target="_blank" rel="noopener noreferrer" class="btn-primary contact-btn magnetic">Gmail →</a>
+      <a href="https://www.instagram.com/pranays.take/" target="_blank" rel="noopener noreferrer" class="btn-primary contact-btn magnetic">Instagram →</a>
+      <a href="https://www.linkedin.com/in/pranay-netha-4097b7383" target="_blank" rel="noopener noreferrer" class="btn-primary contact-btn magnetic">LinkedIn →</a>
     </div>
   </div>
 </section>
@@ -692,11 +696,6 @@
 <footer>
   <div class="wrap foot-row">
     <div class="logo"><span class="dot"></span>PRANAY NETHA</div>
-    <div class="foot-links">
-      <a href="mailto:pranaystake25@gmail.com">pranaystake25@gmail.com</a>
-      <a href="https://instagram.com/pranays.take" target="_blank" rel="noopener">@pranays.take</a>
-      <a href="https://www.linkedin.com/in/pranay-netha-4097b7383" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
     <div class="foot-copy">© 2026 Pranay Netha. All edits shown are placeholder work.</div>
   </div>
 </footer>
